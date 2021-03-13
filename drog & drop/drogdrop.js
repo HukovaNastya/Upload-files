@@ -16,8 +16,8 @@ dropSpace.addEventListener('drop', (e) => {
   let fileType = file.type;
   let fileName = file.name;
   canDrop = false;
-  let validType = ['image/png', 'image/jpg', 'image/jpeg'];
-  if (validType.includes(fileType)){
+ 
+  if ( fileType === 'image/png' || fileType === 'image/jpg'  || fileType === 'image/jpeg' ){
     console.log(fileName);
   }else{
     alert(' This type is not valid!');
