@@ -1,6 +1,6 @@
 const dropSpace = document.querySelector('.drog-space');
 let file;
-// let canDrop = true;
+let canDrop = true;
 dropSpace.addEventListener('dragover' ,(e) => {
   e.preventDefault();
   dropSpace.classList.add('active');
