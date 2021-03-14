@@ -20,7 +20,7 @@ dropSpace.addEventListener('drop', (e) => {
   if ( fileType === 'image/png' || fileType === 'image/jpg'  || fileType === 'image/jpeg' ){
     console.log(fileName);
   }else{
-    alert(' This type is not valid!');
+    alert(' You can drop only file with type: png,jpg,jpeg!');
   }
   dropSpace.classList.remove('active');
   if(canDrop === false ){
