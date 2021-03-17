@@ -7,9 +7,6 @@ const divWithButton = document.querySelector('.progress__inner__btn');
 const btnSave = divWithButton.querySelector('button');
 let file;
 
-
-
-// console.log(imgNAme);
 const availableFileTypes = {
   'image/png': true,
   'image/jpg': true,
@@ -27,6 +24,7 @@ dropSpace.addEventListener('dragover' ,(e) => {
 dropSpace.addEventListener('dragenter' ,(e) => {
   toggleDropSpaceClass();
 });
+
 dropSpace.addEventListener('dragleave', (e) => {
   toggleDropSpaceClass();
 })
@@ -45,7 +43,6 @@ dropSpace.addEventListener('drop', (e) => {
     imgNAme.textContent = name;
     imgSize.classList.add('info-text');
     imgSize.textContent = Math.floor(size/1000) + 'kb';
-
   }
   else{
     alert(' You can drop only file with type: png,jpg,jpeg!');
@@ -60,13 +57,10 @@ function sentServer(body, cb) {
     const response = JSON.parse(xhr.responseText);
     cb(response);
   });
-
   xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8');
-
   xhr.addEventListener('error', () => {
     console.log('error');
   });
-
   xhr.send(JSON.stringify(body)); 
 }
 
