@@ -98,6 +98,10 @@ a{
     justify-content: space-between;
     flex-direction: column;
 }
+.drog-space.active{
+    background-color: #7aaedf;
+    border: 4px solid #037af7;
+}
 .drog-space .drog-space-img img{
     margin-top: 56px;
 }
@@ -123,9 +127,4 @@ a{
     color: #ffffff;
     background-color: #00a6f9;
     box-shadow: 0px 8px 35px 0px rgba(0, 166, 249, 0.3);
-}
-.drag-area.active{
-    border: 2px solid #fff;
-    background-color: aqua;
-    
 }
