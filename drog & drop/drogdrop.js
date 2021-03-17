@@ -1,22 +1,44 @@
 const dropSpace = document.querySelector('.drog-space');
-let file;
+const div = document.querySelector('.info-title');
+const imgNAme = div.querySelector('p');
+console.log(imgNAme);
+const availableFileTypes = {
+  'image/png': true,
+  'image/jpg': true,
+  'image/jpeg': true,
+}
+
+function toggleDropSpaceClass(){
+  dropSpace.classList.toggle('active');
+};
+
 dropSpace.addEventListener('dragover' ,(e) => {
   e.preventDefault();
-  dropSpace.classList.add('active');
+});
 
+dropSpace.addEventListener('dragenter' ,(e) => {
+  toggleDropSpaceClass();
 });
 dropSpace.addEventListener('dragleave', (e) => {
-  dropSpace.classList.remove('active');
+  toggleDropSpaceClass();
 })
+
 dropSpace.addEventListener('drop', (e) => {
   e.preventDefault();
-  file = e.dataTransfer.files[0];
-  let fileType = file.type;
-  let fileName = file.name;
-  if ( fileType === 'image/png' || fileType === 'image/jpg'  || fileType === 'image/jpeg' ){
-    console.log(fileName);
-  }else{
+  if( e.dataTransfer.files.length > 1){
+    alert(' You can drop only one file');
+    toggleDropSpaceClass();
+    return;
+  }
+  const [file] = e.dataTransfer.files;
+  const {type,name} = file;
+  if (availableFileTypes[type]){
+
+    imgNAme.classList.add('info-title');
+    imgNAme.textContent = name;
+  }
+  else{
     alert(' You can drop only file with type: png,jpg,jpeg!');
   }
-  dropSpace.classList.remove('active');
-})
+  toggleDropSpaceClass();
+});
