@@ -10,10 +10,6 @@ console.log(btnBrowse);
 const input = divWithButton.querySelector('input');
 console.log(input);
 let file;
-
-
-
-// console.log(imgNAme);
 const availableFileTypes = {
   'image/png': true,
   'image/jpg': true,
@@ -22,7 +18,6 @@ const availableFileTypes = {
 
 btnBrowse.onclick = ()=>{
   input.click() ;
-  //if user click on the button then the input also clicked
 }
 
 input.addEventListener('change', function() {
@@ -84,18 +79,14 @@ btnSave.addEventListener('click', e => {
   });
 });
 function showFile(){
-
   let fileType = file.type;
   let fileName = file.name;
   let fileSize = file.size;
-
-
   if (availableFileTypes[fileType ]){
     imgNAme.classList.add('info-title');
     imgNAme.textContent =  fileName;
     imgSize.classList.add('info-text');
     imgSize.textContent = Math.floor(fileSize /1000) + 'kb';
-
   }
   else{
     alert(' You can drop only file with type: png,jpg,jpeg!');
