@@ -1,8 +1,11 @@
 *{
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 *, *::before, *::after{
     box-sizing: inherit;
+   
 }
 body{
     background-color: #2b66cc;
@@ -80,7 +83,7 @@ a{
     line-height: 63px;
 }
 .progress__inner-loaded{
-    margin-top: -30px;
+    visibility: hidden;
 }
 .progress__inner-loaded progress{
     width: 545px;
@@ -91,6 +94,7 @@ a{
     color: #55c4fb;
     font-weight: 400;
     line-height: 63px;
+    visibility: hidden;
 }
 .drog-space{
     background-color: #fff;
@@ -129,8 +133,9 @@ a{
     border-radius: 10px;
     background-color: #00a6f9;
     box-shadow: 0px 8px 35px 0px rgba(0, 166, 249, 0.3);
-    font-weight: bold;
-}
+    /* font-weight: bold; */
+
+} 
 /* .drog-space  .drog-space-save{
     background-color: #fff;
-} */
+}
