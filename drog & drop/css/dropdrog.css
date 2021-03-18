@@ -13,7 +13,12 @@ body{
     font-family: 'Lato', sans-serif; 
     flex-direction: column; 
 }
-
+.btn{
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background-color: #fff;
+}
 a{
     color: #000;
     display: inline-block;
@@ -114,17 +119,18 @@ a{
 
 .drog-space  .drog-space-text span{
     color: #0093f7;
+    background-color: #fff;
 }
-.progress__inner__btn button{
+.progress__inner__btn .drog-space-save{
     margin-top: 43px;
     width: 262px;
     height: 64px;
     margin-left: 133px;
     border-radius: 10px;
-    outline: none;
-    cursor: pointer;
-    border: none;
-    color: #ffffff;
     background-color: #00a6f9;
     box-shadow: 0px 8px 35px 0px rgba(0, 166, 249, 0.3);
+    font-weight: bold;
 }
+/* .drog-space  .drog-space-save{
+    background-color: #fff;
+} */
