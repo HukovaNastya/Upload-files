@@ -5,6 +5,10 @@ const divInfoAboutSize = document.querySelector('.info-text');
 const imgSize = divInfoAboutSize.querySelector('p');
 const divWithButton = document.querySelector('.progress__inner__btn');
 const btnSave = divWithButton.querySelector('button');
+const btnBrowse =  document.querySelector('.drog-space-text');
+console.log(btnBrowse);
+const input = divWithButton.querySelector('input');
+console.log(input);
 let file;
 
 
@@ -15,6 +19,17 @@ const availableFileTypes = {
   'image/jpg': true,
   'image/jpeg': true,
 }
+
+btnBrowse.onclick = ()=>{
+  input.click() ;
+  //if user click on the button then the input also clicked
+}
+
+input.addEventListener('change', function() {
+    file = this.files[0];
+    toggleDropSpaceClass();
+    showFile();
+});
 
 function toggleDropSpaceClass(){
   dropSpace.classList.toggle('active');
@@ -39,18 +54,8 @@ dropSpace.addEventListener('drop', (e) => {
     return;
   }
   [file] = e.dataTransfer.files;
-  const {type,name,size} = file;
-  if (availableFileTypes[type]){
-    imgNAme.classList.add('info-title');
-    imgNAme.textContent = name;
-    imgSize.classList.add('info-text');
-    imgSize.textContent = Math.floor(size/1000) + 'kb';
-
-  }
-  else{
-    alert(' You can drop only file with type: png,jpg,jpeg!');
-  }
-  toggleDropSpaceClass();
+  showFile();
+  // toggleDropSpaceClass();
 });
 
 function sentServer(body, cb) {
@@ -78,3 +83,23 @@ btnSave.addEventListener('click', e => {
    console.log(response);
   });
 });
+function showFile(){
+
+  let fileType = file.type;
+  let fileName = file.name;
+  let fileSize = file.size;
+
+
+  if (availableFileTypes[fileType ]){
+    imgNAme.classList.add('info-title');
+    imgNAme.textContent =  fileName;
+    imgSize.classList.add('info-text');
+    imgSize.textContent = Math.floor(fileSize /1000) + 'kb';
+
+  }
+  else{
+    alert(' You can drop only file with type: png,jpg,jpeg!');
+  }
+  toggleDropSpaceClass();
+};
+
